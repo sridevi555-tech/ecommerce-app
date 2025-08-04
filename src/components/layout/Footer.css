@@ -1,0 +1,115 @@
+/* src/components/layout/Footer.css */
+.amazon-footer {
+  background: #232f3e;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 40px;
+  margin-top: auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-column h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.footer-column ul li a:hover {
+  color: #ff9900;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #3a4a5f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  background: #1f2836;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff9900;
+}
+
+.footer-logo span {
+  letter-spacing: -1px;
+}
+
+.footer-legal p {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-policies {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-policies a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-policies a:hover {
+  color: #ff9900;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .footer-column {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-bottom {
+    padding: 1rem;
+  }
+
+  .footer-legal p,
+  .footer-policies {
+    font-size: 0.85rem;
+  }
+}

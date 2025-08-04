@@ -1,0 +1,31 @@
+.cart-summary {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.cart-summary h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  color: #1a1a1a;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.75rem;
+}
+
+.summary-row,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.75rem 0;
+}
+
+.summary-total {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}

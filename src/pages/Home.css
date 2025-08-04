@@ -1,0 +1,46 @@
+.home-page {
+  padding: 1rem 0;
+}
+
+.hero-banner {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #2874f0, #4a90e2);
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-banner h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-banner p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.category-section {
+  margin: 3rem 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #2874f0;
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-banner h1 {
+    font-size: 1.6rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

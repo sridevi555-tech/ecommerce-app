@@ -1,0 +1,66 @@
+/* src/index.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9fb;
+  color: #1a1a1a;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+/* Ensure all text adapts */
+.dark-theme .logo-text,
+.dark-theme .nav-link,
+.dark-theme .action-link,
+.dark-theme .product-title,
+.dark-theme .product-price,
+.dark-theme .product-rating,
+.dark-theme .btn-primary,
+.dark-theme .footer-column a,
+.dark-theme .btn-logout {
+  color: #e0e0e0 !important;
+}
+
+.dark-theme .logo-icon,
+.dark-theme .search-input,
+.dark-theme .product-card {
+  color: #ffffff !important;
+}
+
+.dark-theme .product-card {
+  background: #1f2937;
+  border: 1px solid #333;
+}
+
+.dark-theme .header-container,
+.dark-theme .nav-menu,
+.dark-theme .amazon-footer {
+  background: #1e293b;
+  border-color: #333;
+}
+
+.dark-theme .search-input {
+  background: #2d3748;
+  color: #e0e0e0;
+  border: 1px solid #4a5568;
+}
+
+.dark-theme .search-input::placeholder {
+  color: #a0aec0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
