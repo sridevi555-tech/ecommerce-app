@@ -108,6 +108,11 @@
   padding: 0.75rem 1.5rem;
   font-size: 1.1rem;
 }
+.b{
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+}
 
 /* Responsive */
 @media (max-width: 768px) {

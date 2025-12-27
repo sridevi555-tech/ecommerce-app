@@ -29,7 +29,7 @@ const productSlice = createSlice({
         (product) =>
           product.name.toLowerCase().includes(query) ||
           product.description.toLowerCase().includes(query) ||
-          product.brand.toLowerCase().includes(query)
+          product.title.toLowerCase().includes(query)
       );
     },
 
@@ -45,8 +45,20 @@ const productSlice = createSlice({
     setError: (state, action) => {
       state.error = action.payload;
     },
+    fetchStart: (state) => { state.status = 'loading'; },
+    fetchSuccess: (state, action) => {
+      state.items = action.payload;
+      state.status = 'succeeded';
+    },
+    fetchFailure: (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload;
+    }
   },
 });
 
-export const { setProducts, filterBySearch, clearFilter, setLoading, setError } = productSlice.actions;
+export const { setProducts, filterBySearch, clearFilter, setLoading, setError,fetchStart, fetchSuccess, fetchFailure  } = productSlice.actions;
 export default productSlice.reducer;
+
+
+

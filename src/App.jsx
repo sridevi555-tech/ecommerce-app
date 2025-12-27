@@ -26,6 +26,7 @@ import YourOrders from "./pages/YourOrders";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { store } from "./store/store";
+import Wishlist from "./pages/wishlist";
 
 // Footer Pages
 
@@ -36,12 +37,14 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/category/:category" element={<Home />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/wishlist" element={<Wishlist/>}></Route>
 
             {/* Footer Routes */}
             <Route path="/about" element={<About />} />
@@ -61,7 +64,6 @@ function App() {
             <Route path="/security" element={<Security />} />
             <Route path="/sitemap" element={<Sitemap />} />
 
-            {/* Social Links can be external */}
           </Routes>
         </Layout>
       </Router>

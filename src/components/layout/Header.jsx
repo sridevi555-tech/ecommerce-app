@@ -1,27 +1,34 @@
+
 import "./Header.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout } from "../../features/auth/authSlice.jsx";
+import { logout } from "../../features/auth/authSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items);
-  const auth = useSelector((state) => state.auth);
+  const cartItems = useSelector((state) => state.cart?.items || []);
+  const wishlistItems = useSelector((state) => state.wishlist?.items || []);
+  const auth = useSelector((state) => state.auth || {});
   const { isAuthenticated, user } = auth;
-  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  const totalCartItems = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
+  const totalWishlistItems = wishlistItems.length;
+
   const [searchQuery, setSearchQuery] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Load saved theme
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const dark = savedTheme === "dark";
     setIsDarkMode(dark);
-    if (dark) document.body.classList.add("dark-theme");
+    if (dark) {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    }
   }, []);
 
-  // Toggle theme
   const toggleTheme = () => {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);
@@ -82,44 +89,37 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* User Actions */}
+          {/* User Actions — HORIZONTAL LINE */}
           <div className="user-actions">
-            {isAuthenticated ? (
-              <div className="user-menu">
-                {/* Greeting */}
-                <p className="greeting">Hi, <strong>{user?.name || "User"}</strong></p>
-
-                {/* Your Orders */}
-                <Link to="/your-orders" className="action-link orders">
-                  Your Orders
-                </Link>
-
-                {/* Logout */}
+          {isAuthenticated ? (
+              <>
+            
+                 <span className="user-greeting">Hi, <strong><h2>{user?.name || "User"}</h2></strong></span>
+                <Link to="/your-orders" className="action-link"><h1></h1></Link>
                 <button
                   onClick={() => dispatch(logout())}
                   className="action-link logout"
                 >
-                  Logout
+                <h1>Logout</h1>  
                 </button>
-              </div>
+                <Link to="/checkout" className="checkout-btn"><h2>Checkout</h2></Link>
+                 <Link to="/cart" className="cart-link">
+                 <h2>🛒 Cart</h2> 
+                  {totalCartItems > 0 && (
+                    <span className="badge">{totalCartItems}</span>
+                  )}
+                </Link>
+                <Link to="/wishlist" className="wishlist-link">
+                 <h2> 🛍️ Wishlist</h2>
+                  {totalWishlistItems > 0 && (
+                    <span className="badge">{totalWishlistItems}</span>
+                  )}
+                </Link>
+              </>
             ) : (
-              <Link to="/login" className="auth-link">
-                Login
-              </Link>
+              <Link to="/login" className="auth-link"><h1>👤Login</h1></Link>
             )}
-
-            {/* Cart */}
-            <Link to="/cart" className="cart-link">
-              🛒 Cart
-              {totalItems > 0 && (
-                <span className="cart-badge">{totalItems}</span>
-              )}
-            </Link>
-
-            {/* Checkout */}
-            <Link to="/checkout" className="checkout-btn">
-              Checkout
-            </Link>
+           
           </div>
         </div>
       </div>
@@ -128,10 +128,10 @@ const Header = () => {
       <nav className="nav-bar">
         <div className="container">
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/?category=Electronics" className="nav-link">Electronics</Link>
-          <Link to="/?category=Fashion" className="nav-link">Fashion</Link>
-          <Link to="/?category=Home" className="nav-link">Home & Furniture</Link>
-          <Link to="/?category=Appliances" className="nav-link">Appliances</Link>
+          <Link to="/category/electronics" className="nav-link">Electronics</Link>
+          <Link to="/category/jewelery" className="nav-link">Jewelry</Link>
+          <Link to="/category/men's clothing" className="nav-link">Men's Clothing</Link>
+          <Link to="/category/women's clothing" className="nav-link">Women's Clothing</Link>
         </div>
       </nav>
     </header>

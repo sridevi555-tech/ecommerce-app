@@ -1,0 +1,61 @@
+/* src/pages/Wishlist.css */
+.wishlist-container {
+  padding: 20px;
+}
+
+.wishlist-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.wishlist-item {
+  position: relative;
+  padding: 10px;
+}
+
+.wishlist-remove-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishlist-remove-btn:hover {
+  background-color: #c53030;
+}
+
+.wishlist-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.wishlist-browse-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.wishlist-browse-link:hover {
+  text-decoration: underline;
+}

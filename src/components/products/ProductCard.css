@@ -22,34 +22,39 @@
 
 .product-image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 180px;
+  object-fit: contain;
+  background: #f9f9f9;
 }
 
 .product-info {
-  padding: 1rem;
+  padding: 0.85rem;
   flex-grow: 1;
 }
 
 .product-title {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: #1a1a1a;
-  line-height: 1.4;
+  line-height: 1.35;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .product-price {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   color: #007bff;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
 }
 
 .product-rating {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #e6a700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .product-rating span {
@@ -57,27 +62,73 @@
   margin-left: 0.25rem;
 }
 
+/* Buttons */
 .add-to-cart-btn {
-  width: 90%;
-  margin: 0 auto 1rem;
-  padding: 0.75rem;
-  font-size: 1rem;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s;
+  width: 45%;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 0 0.25rem 0.75rem;
 }
 
-.product-card:hover .add-to-cart-btn {
-  opacity: 1;
-  transform: translateY(0);
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
 }
 
-/* Responsive Adjustments */
+/* ✅ Wishlist Button - LARGER HEART ON ALL DEVICES */
+.wishlist-toggle-btn {
+  width: 45%;
+  padding: 0.5rem;
+  font-size: 1.2rem; /* 🎯 This makes the emoji bigger everywhere */
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 0 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishlist-toggle-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem 0.75rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .product-card {
     height: auto;
   }
   .product-image {
     height: 150px;
+  }
+  .product-title {
+    font-size: 0.9rem;
+  }
+  .product-price {
+    font-size: 1rem;
+  }
+  .add-to-cart-btn,
+  .wishlist-toggle-btn {
+    width: 100%;
+    margin: 0.25rem 0;
+    font-size: 2.0rem; /* Keep heart large on mobile too */
+  }
+  .product-actions {
+    flex-direction: column;
   }
 }
