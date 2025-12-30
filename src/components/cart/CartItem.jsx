@@ -6,14 +6,14 @@ import { decrementQuantity, incrementQuantity, removeFromCart } from "../../feat
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
-  const { id, name, price, image, quantity } = item;
+  const { id, title, price, image, quantity } = item;
   const totalPrice = price * quantity;
 
   return (
     <div className="cart-item">
       <img src={image} alt={name} className="cart-item-image" />
       <div className="cart-item-info">
-        <h3 className="cart-item-title">{name}</h3>
+        <h3 className="cart-item-title">{title}</h3>
         <p className="cart-item-price">{formatCurrency(price)}</p>
       </div>
       <div className="cart-item-quantity">

@@ -1,5 +1,5 @@
 // src/pages/Wishlist.jsx
-import "./Wishlist.css";
+import "./wishlist.css";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
